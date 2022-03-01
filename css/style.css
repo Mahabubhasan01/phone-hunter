@@ -1,7 +1,16 @@
 *{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-.border{
-    border-radius: 10px;
-    color: rgb(43, 105, 146);
+.border-size{
+    border-left: 2px solid #0dcef1;
+    border-bottom: 2px solid #0dcef1;
+    border-radius: 13px;
+
+    
+}
+.size{
+    color: rgb(11, 27, 37);
+    font-weight: 600;
 }

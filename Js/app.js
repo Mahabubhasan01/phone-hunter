@@ -18,16 +18,16 @@
         div.classList.add('col-sm-1', 'col-md-4', 'col-lg-4')
         div.innerHTML=
     `
-    <div class="card shadow-lg p-1 border" style="width: 18rem;">
-        <img src="${data.image}" class="card-img-top p-2 " alt="...">
+    <div class="card shadow-lg p-1 border-size " style="width: 20rem;">
+        <img src="${data.image}" class="card-img-top p-4  " alt="...">
         <div class="card-body">
-        <h5 class="card-title">Brand : ${data.brand}<br>Phone name : ${data.phone_name}</h5>
-        <p class="card-text"></p>
+        <h5 class="card-title ">Brand : ${data.brand}<br>Phone name : ${data.phone_name}</h5>
+        <p class="card-text text-normal">Get a touch Brand new Phone here and adjust new trand in your life style</p>
         
         <div class="d-flex d-lg-flex justify-content-between">
-        <a href="#" class="btn btn-primary"><span  data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="detailsProduct()" id="detail-btn">Details</span></a>
+        <a href="#" class="btn rounded-3  btn-outline-info size"><span  data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="detailsProduct()" id="detail-btn">Details</span></a>
 
-        <a href="#" class="btn btn-primary"><span data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="moreProductInfo()" id="explore-btn">Explore</span></a>
+        <a href="#" class="btn rounded-3  btn-outline-info size"><span data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="moreProductInfo()" id="explore-btn">More</span></a>
         </div>
         </div>
     </div>
@@ -66,8 +66,8 @@ const detailsInfo = (brands) =>{
                           </div>
                           <div class="col-md-8">
                             <div class="card-body">
-                              <h5 class="card-title">${brands.data.name}</h5>
-                              <p class="card-text">Storage : ${brands.data.mainFeatures.storage}<br>Display : ${brands.data.mainFeatures.displaySize}<br>Chipset : ${brands.data.mainFeatures.chipSet}<br>Memory : ${brands.data.mainFeatures.memory}
+                              <h4 class="card-title">${brands.data.name}</h4>
+                              <p class="card-text size">Storage : ${brands.data.mainFeatures.storage}<br>Display : ${brands.data.mainFeatures.displaySize}<br>Chipset : ${brands.data.mainFeatures.chipSet}<br>Memory : ${brands.data.mainFeatures.memory}
                               </p>
                               <p class="card-text"><small class="text-muted">ReleaseDate : ${brands.data.releaseDate}</small></p>
                             </div>
@@ -122,7 +122,9 @@ const Info = (datas) =>{
                           <div class="col-md-8">
                             <div class="card-body">
                               <h5 class="card-title">${datas.data.name}</h5>
-                              <p class="card-text">Sensors : ${datas.data.mainFeatures.sensors[0]}, ${datas.data.mainFeatures.sensors[1]}, ${datas.data.mainFeatures.sensors[2]}, ${datas.data.mainFeatures.sensors[3]}
+                              <p class="card-text size">Sensors : ${datas.data.mainFeatures.sensors[0]}, 
+                              ${datas.data.mainFeatures.sensors[1]}, ${datas.data.mainFeatures.sensors[2]}, 
+                              ${datas.data.mainFeatures.sensors[3]}
                               <br>NFC : ${datas.data.others.NFC}
                               <br>Radio : ${datas.data.others.Radio}
                               <br>Bluetooth : ${datas.data.others.Bluetooth}
