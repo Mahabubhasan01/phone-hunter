@@ -1,0 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+.border{
+    border-radius: 10px;
+    color: rgb(43, 105, 146);
+}

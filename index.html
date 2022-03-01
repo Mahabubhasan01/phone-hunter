@@ -21,21 +21,83 @@
         </div>
         <!-- Input field and btn  -->
         <div class="  w-50 mx-auto  input-group mb-3">
-            <input id="search" type="text" class="form-control fw-bold" placeholder="Brand Name..." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input id="search" type="text" class="form-control fw-normal" placeholder="Type Brand Name Here..." aria-label="Recipient's username" aria-describedby="button-addon2">
             <button class="btn btn-outline-secondary fw-bold border " type="button" id="button-addon2">
                 <span onclick="allBrand()" id="searchBtn">Search</span></button>
           </div>
         <!-- Input field and btn  -->
     </header>
     
+    
+    
     <!-- Header  -->
     <!-- Main  -->
     <main class=" container">
         <!-- Card-------------->
-        <div id="card" class="row g-2"></div>
+        <div id="card" class="row g-4 mx-auto"></div>
         <!-- Card-------------->
+        <!-- card details info  -->
+       <div class="" id="card-detail">
+        <!-- <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="..." class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+       </div>
+        <!-- card details info  -->
+        <!-- modal  -->
+        <!-- Button trigger modal -->
+    <!-- <div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Launch static backdrop modal
+            </button>
+            
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="card mb-3 border shadow-lg" style="max-width: 540px;">
+                        <div class="row g-0">
+                          <div class="col-md-4 p-3">
+                            <img src="${brands.data.image}" class="img-fluid rounded-start " alt="...">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title">${brands.data.name}</h5>
+                              <p class="card-text">Storage : ${brands.data.mainFeatures.storage}<br>Display : ${brands.data.mainFeatures.displaySize}<br>Chipset : ${brands.data.mainFeatures.chipSet}<br>Memory : ${brands.data.mainFeatures.memory}
+                              </p>
+                              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div> 
+                      
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div> -->
+  
+        <!-- modal  -->
 
-    </main>
+    </main  >
     <!-- Main  -->
     <!-- Footer  -->
     <footer>
