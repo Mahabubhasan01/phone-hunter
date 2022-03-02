@@ -4,6 +4,7 @@
     box-sizing: border-box;
     
 }
+/* border size  */
 
 .border-size{
     border-left: 2px solid #0dcef1;
@@ -12,10 +13,13 @@
 
     
 }
+/* font size  */
 .size{
     color: rgb(11, 27, 37);
     font-weight: 600;
 }
+
+/* preloader spiner  */
 #spiner{
     display: none;
     background-repeat: no-repeat;
