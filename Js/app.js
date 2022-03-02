@@ -26,29 +26,29 @@
     for(const data of sliceValue){
         //  console.log(data)
             const div = document.createElement('div');
-            div.classList.add('col-sm-1', 'col-md-4', 'col-lg-4')
-           
-            div.innerHTML=
-        `
-        <div class="card shadow-lg p-1 border-size " style="width: 20rem;">
+            div?.classList?.add('col-sm-1', 'col-md-4', 'col-lg-4')
+            div.innerHTML=` <div class="card shadow-lg p-1 border-size " style="width: 20rem;">
             <img src="${data.image}" class="card-img-top p-4  " alt="...">
             <div class="card-body">
-            <h5 class="card-title ">Brand : ${data.brand}<br>Phone name : ${data.phone_name}</h5>
-            <p class="card-text text-normal">Get a touch Brand new Phone here and adjust new trand in your life style</p>
+                <h5 class="card-title ">Brand : ${data.brand}<br>Phone name : ${data.phone_name}</h5>
+                <p class="card-text text-normal">Get a touch Brand new Phone here and adjust new trand in your life style
+                </p>
             
-            <div class="d-flex d-lg-flex justify-content-between">
-            <a href="#" class="btn rounded-3  btn-outline-info size"><span  data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="detailsProduct('${data.slug}')" id="detail-btn">Details</span></a>
+                <div class="d-flex d-lg-flex justify-content-between">
+                <a href="#" class="btn rounded-3  btn-outline-info size"><span  data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="detailsProduct('${data.slug}')" id="detail-btn">Detail</span>
+                </a>
     
-            <a href="#" class="btn rounded-3  btn-outline-info size"><span data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="moreProductInfo('${data.slug}')" id="explore-btn">More</span></a>
-            </div>
+                <a href="#" class="btn rounded-3  btn-outline-info size"><span data-bs-toggle="modal"               data-bs-target="#staticBackdrop" onclick="moreProductInfo('${data.slug}')" id="explore-btn">More</span>
+                </a>
+                </div>
             </div>
             
         </div>
-    ` 
+        ` 
         parent.appendChild(div)
         // console.log(data.slug)
         }
- }
+    }
  }
 
 //  Info details
@@ -79,9 +79,32 @@ const detailsInfo = (data) =>{
                           <div class="col-md-8">
                             <div class="card-body">
                               <h4 class="card-title">${data.data.name}</h4>
-                              <p class="card-text size">Storage : ${data.data.mainFeatures.storage}<br>Display : ${data.data.mainFeatures.displaySize}<br>Chipset : ${data.data.mainFeatures.chipSet}<br>Memory : ${data.data.mainFeatures.memory}
-                              </p>
-                              <p class="card-text"><small class="text-muted">ReleaseDate : ${data.data.releaseDate}</small></p>
+                              <p class="card-text size">
+
+                              <table class="table table-info table-sm">
+                              <tbody>
+                                <tr>
+                                  <th scope="row">Storage</th>
+                                  <td> ${data.data.mainFeatures.storage}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Display</th>
+                                  <td>${data.data.mainFeatures.displaySize}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Chipset</th>
+                                  <td>${data.data.mainFeatures.chipSet}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Memory</th>
+                                  <td>${data.data.mainFeatures.memory}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Release Date</th>
+                                  <td>${data.data.releaseate}</td>
+                                </tr>
+                              </tbody>
+                            </table>
                             </div>
                           </div>
                         </div>
@@ -120,7 +143,6 @@ const Info = (datas) =>{
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
                     <div class="card mb-3 border shadow-lg" style="max-width: 540px;">
                         <div class="row g-0">
                           <div class="col-md-4 p-5">
@@ -129,15 +151,43 @@ const Info = (datas) =>{
                           <div class="col-md-8">
                             <div class="card-body">
                               <h5 class="card-title">${datas.data.name}</h5>
-                              <p class="card-text size">Sensors : ${datas.data.mainFeatures.sensors[0]}, 
-                              ${datas.data.mainFeatures.sensors[1]}, ${datas.data.mainFeatures.sensors[2]}, 
-                              ${datas.data.mainFeatures.sensors[3]}
-                              <br>NFC : ${datas?.data?.others?.NFC}
-                              <br>Radio : ${datas?.data?.others?.Radio}
-                              <br>Bluetooth : ${datas?.data?.others?.Bluetooth}
-                              <br>USB : ${datas?.data?.others?.USB}
-                              <br>GPS : ${datas?.data?.others?.GPS}
-                              <br>WLAN : ${datas?.data?.others?.WLAN}
+                              <p class="card-text size">
+
+                              <table class="table table-info table-sm">
+                              <tbody>
+                                <tr>
+                                  <th scope="row">Sensors</th>
+                                  <td> ${datas.data.mainFeatures.sensors[0]}, 
+                                  ${datas.data.mainFeatures.sensors[1]}, ${datas.data.mainFeatures.sensors[2]}, 
+                                  ${datas.data.mainFeatures.sensors[3]}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">NFC</th>
+                                  <td>${datas?.data?.others?.NFC ? datas?.data?.others?.NFC : 'Not found'}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Radio</th>
+                                  <td>${datas?.data?.others?.Radio ? datas?.data?.others?.Radio: 'Not found'}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">Bluetooth</th>
+                                  <td>${datas?.data?.others?.Bluetooth ? datas?.data?.others?.Bluetooth :'Not found'}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">USB</th>
+                                  <td>${datas?.data?.others?.USB ? datas?.data?.others?.USB : 'Not found'}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">GPS</th>
+                                  <td>${datas?.data?.others?.GPS ? datas?.data?.others?.GPS : 'Not found'}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">WLAN</th>
+                                  <td>${datas?.data?.others?.WLAN ? datas?.data?.others?.WLAN : 'Not found'}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                              
                               </p>
                             </div>
                           </div>
@@ -154,6 +204,7 @@ const Info = (datas) =>{
     </div>`
     
       cardDetail.appendChild(cardDetailDiv)
+      
     
 } 
 
