@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
+
 .border-size{
     border-left: 2px solid #0dcef1;
     border-bottom: 2px solid #0dcef1;
@@ -16,4 +18,6 @@
 }
 #spiner{
     display: none;
+    background-repeat: no-repeat;
+    background-position:initial;
 }

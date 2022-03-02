@@ -1,11 +1,17 @@
  allBrand = () =>{
      document.getElementById('card').innerHTML='';
-     const searchValue = document.getElementById('search').value;
+     let searchValue = document.getElementById('search').value;
      document.getElementById('search').value='';
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchValue}`
-    fetch(url)
-    .then(res=>res.json())
-    .then(data=>brandInfo(data.data))
+     if(searchValue==''){
+         alert('Opps! type a brand name input field  here')
+         
+     }
+     else{
+        const url = `https://openapi.programming-hero.com/api/phones?search=${searchValue}`
+        fetch(url)
+       .then(res=>res.json())
+       .then(data=>brandInfo(data.data));
+     }
     
  }
     const brandInfo = datas =>{
@@ -104,7 +110,7 @@ const moreProductInfo = (id) =>{
 const Info = (datas) =>{
         const cardDetail = document.getElementById('card-detail');
         const cardDetailDiv = document.createElement('div');
-        console.log(datas)
+        // console.log(datas)
         cardDetailDiv.innerHTML=`<div>
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -126,12 +132,12 @@ const Info = (datas) =>{
                               <p class="card-text size">Sensors : ${datas.data.mainFeatures.sensors[0]}, 
                               ${datas.data.mainFeatures.sensors[1]}, ${datas.data.mainFeatures.sensors[2]}, 
                               ${datas.data.mainFeatures.sensors[3]}
-                              <br>NFC : ${datas.data.others.NFC}
-                              <br>Radio : ${datas.data.others.Radio}
-                              <br>Bluetooth : ${datas.data.others.Bluetooth}
-                              <br>USB : ${datas.data.others.USB}
-                              <br>GPS : ${datas.data.others.GPS}
-                              <br>WLAN : ${datas.data.others.WLAN}
+                              <br>NFC : ${datas?.data?.others?.NFC}
+                              <br>Radio : ${datas?.data?.others?.Radio}
+                              <br>Bluetooth : ${datas?.data?.others?.Bluetooth}
+                              <br>USB : ${datas?.data?.others?.USB}
+                              <br>GPS : ${datas?.data?.others?.GPS}
+                              <br>WLAN : ${datas?.data?.others?.WLAN}
                               </p>
                             </div>
                           </div>
@@ -146,6 +152,7 @@ const Info = (datas) =>{
             </div>
           </div>
     </div>`
+    
       cardDetail.appendChild(cardDetailDiv)
     
 } 
