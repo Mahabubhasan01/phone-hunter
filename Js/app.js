@@ -9,44 +9,51 @@
     
  }
     const brandInfo = datas =>{
+        // console.log(datas)
     const parent = document.getElementById('card');
     const sliceValue = datas.slice(0,20);
 /*     console.log(sliceValue)
- */    for(const data of sliceValue){
-     console.log(data)
-        const div = document.createElement('div');
-        div.classList.add('col-sm-1', 'col-md-4', 'col-lg-4')
-        div.innerHTML=
-    `
-    <div class="card shadow-lg p-1 border-size " style="width: 20rem;">
-        <img src="${data.image}" class="card-img-top p-4  " alt="...">
-        <div class="card-body">
-        <h5 class="card-title ">Brand : ${data.brand}<br>Phone name : ${data.phone_name}</h5>
-        <p class="card-text text-normal">Get a touch Brand new Phone here and adjust new trand in your life style</p>
-        
-        <div class="d-flex d-lg-flex justify-content-between">
-        <a href="#" class="btn rounded-3  btn-outline-info size"><span  data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="detailsProduct()" id="detail-btn">Details</span></a>
-
-        <a href="#" class="btn rounded-3  btn-outline-info size"><span data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="moreProductInfo()" id="explore-btn">More</span></a>
-        </div>
-        </div>
-    </div>
-` 
-    parent.appendChild(div) 
+ */    if(sliceValue== null){
+     document.getElementById('spiner').style.display='block'
  }
- 
+ else{
+    for(const data of sliceValue){
+        //  console.log(data)
+            const div = document.createElement('div');
+            div.classList.add('col-sm-1', 'col-md-4', 'col-lg-4')
+           
+            div.innerHTML=
+        `
+        <div class="card shadow-lg p-1 border-size " style="width: 20rem;">
+            <img src="${data.image}" class="card-img-top p-4  " alt="...">
+            <div class="card-body">
+            <h5 class="card-title ">Brand : ${data.brand}<br>Phone name : ${data.phone_name}</h5>
+            <p class="card-text text-normal">Get a touch Brand new Phone here and adjust new trand in your life style</p>
+            
+            <div class="d-flex d-lg-flex justify-content-between">
+            <a href="#" class="btn rounded-3  btn-outline-info size"><span  data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="detailsProduct('${data.slug}')" id="detail-btn">Details</span></a>
+    
+            <a href="#" class="btn rounded-3  btn-outline-info size"><span data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="moreProductInfo('${data.slug}')" id="explore-btn">More</span></a>
+            </div>
+            </div>
+            
+        </div>
+    ` 
+        parent.appendChild(div)
+        // console.log(data.slug)
+        }
  }
-
+ }
 
 //  Info details
-     const detailsProduct = () =>{
-    const searchValue = document.getElementById('search').value;
-    const url = `https://openapi.programming-hero.com/api/phone/apple_iphone_13_pro_max-11089`
+     const detailsProduct = (id) =>{
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`
     fetch(url)
     .then(res=>res.json())
     .then(data=>detailsInfo(data))
 }
-const detailsInfo = (brands) =>{
+const detailsInfo = (data) =>{
+    // console.log(data.data.name)
         const cardDetail = document.getElementById('card-detail');
         const cardDetailDiv = document.createElement('div');
         cardDetailDiv.innerHTML=`<div>
@@ -54,27 +61,25 @@ const detailsInfo = (brands) =>{
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">${brands.data.name}</h5>
+                  <h5 class="modal-title" id="staticBackdropLabel">${data.data.brand}</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- js  -->
                     <div class="card mb-3 border shadow-lg" style="max-width: 540px;">
                         <div class="row g-0">
                           <div class="col-md-4 p-5">
-                            <img src="${brands.data.image}" class="img-fluid rounded-start " alt="...">
+                            <img src="${data.data.image}" class="img-fluid rounded-start " alt="...">
                           </div>
                           <div class="col-md-8">
                             <div class="card-body">
-                              <h4 class="card-title">${brands.data.name}</h4>
-                              <p class="card-text size">Storage : ${brands.data.mainFeatures.storage}<br>Display : ${brands.data.mainFeatures.displaySize}<br>Chipset : ${brands.data.mainFeatures.chipSet}<br>Memory : ${brands.data.mainFeatures.memory}
+                              <h4 class="card-title">${data.data.name}</h4>
+                              <p class="card-text size">Storage : ${data.data.mainFeatures.storage}<br>Display : ${data.data.mainFeatures.displaySize}<br>Chipset : ${data.data.mainFeatures.chipSet}<br>Memory : ${data.data.mainFeatures.memory}
                               </p>
-                              <p class="card-text"><small class="text-muted">ReleaseDate : ${brands.data.releaseDate}</small></p>
+                              <p class="card-text"><small class="text-muted">ReleaseDate : ${data.data.releaseDate}</small></p>
                             </div>
                           </div>
                         </div>
                       </div> 
-                      <!-- js.......  -->
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
@@ -84,26 +89,22 @@ const detailsInfo = (brands) =>{
           </div>
     </div>`
       cardDetail.appendChild(cardDetailDiv)
-     /*  {<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Launch static backdrop modal
-            </button>} */
+     
     
 }
 
 
 // ...............brandInfo........................brandInfo......brandInfo........
-const moreProductInfo = () =>{
-    const searchValue = document.getElementById('search').value;
-    const url = `https://openapi.programming-hero.com/api/phone/apple_iphone_13_pro_max-11089`
+const moreProductInfo = (id) =>{
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`
     fetch(url)
     .then(res=>res.json())
     .then(data=>Info(data))
 }
 const Info = (datas) =>{
-    
-        console.log(datas.data)
         const cardDetail = document.getElementById('card-detail');
         const cardDetailDiv = document.createElement('div');
+        console.log(datas)
         cardDetailDiv.innerHTML=`<div>
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -113,7 +114,7 @@ const Info = (datas) =>{
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- js  -->
+                    
                     <div class="card mb-3 border shadow-lg" style="max-width: 540px;">
                         <div class="row g-0">
                           <div class="col-md-4 p-5">
@@ -136,7 +137,7 @@ const Info = (datas) =>{
                           </div>
                         </div>
                       </div> 
-                      <!-- js.......  -->
+                      
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
@@ -146,9 +147,6 @@ const Info = (datas) =>{
           </div>
     </div>`
       cardDetail.appendChild(cardDetailDiv)
-     /*  {<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Launch static backdrop modal
-            </button>} */
     
 } 
 
