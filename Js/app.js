@@ -101,7 +101,7 @@ const detailsInfo = (data) =>{
                                 </tr>
                                 <tr>
                                   <th scope="row">Release Date</th>
-                                  <td>${data.data.releaseate}</td>
+                                  <td>${data?.data?.releaseate ? data?.data?.releaseate :'Not found' }</td>
                                 </tr>
                               </tbody>
                             </table>
