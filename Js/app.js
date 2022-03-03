@@ -1,5 +1,7 @@
- allBrand = () =>{
-     document.getElementById('card').innerHTML='';
+
+ 
+ const allBrand = () =>{
+    //  document.getElementById('card').innerHTML='';
      let searchValue = document.getElementById('search').value;
      document.getElementById('search').value='';
      if(searchValue==''){
@@ -14,6 +16,7 @@
      }
     
  }
+
     const brandInfo = datas =>{
         // console.log(datas)
     const parent = document.getElementById('card');
@@ -51,6 +54,7 @@
     }
  }
 
+
 //  Info details
      const detailsProduct = (id) =>{
     const url = `https://openapi.programming-hero.com/api/phone/${id}`
@@ -61,7 +65,9 @@
 const detailsInfo = (data) =>{
     // console.log(data.data.name)
         const cardDetail = document.getElementById('card-detail');
+        cardDetail.innerHTML=''
         const cardDetailDiv = document.createElement('div');
+
         cardDetailDiv.innerHTML=`<div>
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -131,7 +137,8 @@ const moreProductInfo = (id) =>{
     .then(data=>Info(data))
 }
 const Info = (datas) =>{
-        const cardDetail = document.getElementById('card-detail');
+        const cardDetail = document.getElementById('card-detail')
+        
         const cardDetailDiv = document.createElement('div');
         // console.log(datas)
         cardDetailDiv.innerHTML=`<div>
@@ -139,7 +146,7 @@ const Info = (datas) =>{
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">${datas.data.name}</h5>
+                  <h5 class="modal-title" id="staticBackdropLabel">${datas.data.brand}</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -187,7 +194,6 @@ const Info = (datas) =>{
                                 </tr>
                               </tbody>
                             </table>
-                              
                               </p>
                             </div>
                           </div>
@@ -202,6 +208,8 @@ const Info = (datas) =>{
             </div>
           </div>
     </div>`
+    
+    
     
       cardDetail.appendChild(cardDetailDiv)
       
